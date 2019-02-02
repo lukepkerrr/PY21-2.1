@@ -21,7 +21,8 @@ def make_new_cook_book(file):
     return new_cook_book
 
 
-def get_shop_list_by_dishes(dishes, person_count):
+def get_shop_list_by_dishes(dishes, person_count, book):
+    cook_book = book
 
     shop_list = {}
 
@@ -36,7 +37,10 @@ def get_shop_list_by_dishes(dishes, person_count):
     return shop_list
 
 #Для тестов
-cook_book = make_new_cook_book('recipes.txt')
-test_list = get_shop_list_by_dishes(['Запеченный картофель', 'Омлет', 'Фахитос'], 2)
-for ingr in test_list:
-    print('{} - {} {}'.format(ingr, test_list[ingr]['quantity'], test_list[ingr]['measure']))
+def test():
+    cook_book = make_new_cook_book('recipes.txt')
+    test_list = get_shop_list_by_dishes(['Запеченный картофель', 'Омлет', 'Фахитос'], 2, cook_book)
+    for ingr in test_list:
+        print('{} - {} {}'.format(ingr, test_list[ingr]['quantity'], test_list[ingr]['measure']))
+
+test()
